@@ -7,7 +7,7 @@ echo 'installing git'
 sudo apt install git -y
 
 echo "What name do you want to use in GIT user.name?"
-echo "For example, mine will be \"Erick Wendel\""
+echo "For example, mine will be \"Rafael Lucini\""
 read git_config_user_name
 git config --global user.name "$git_config_user_name"
 clear 
@@ -57,6 +57,12 @@ sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode s
 sudo apt-get install apt-transport-https -y
 sudo apt-get update
 sudo apt-get install code -y # or code-insiders
+
+echo 'installing Android Studio'
+sudo snap install android-studio --classic
+
+echo 'installing IDEA Community'
+sudo snap install intellij-idea-community --classic
 
 echo 'installing spotify' 
 snap install spotify
