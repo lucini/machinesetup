@@ -87,6 +87,12 @@ nvm alias default 12.4.0
 node --version
 npm --version
 
+echo 'installing AngularCLI'
+npm install -g @angular/cli
+
+echo 'installing npm-check'
+npm install -g npm-check
+
 echo 'installing autosuggestions' 
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 echo "source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ~/.zshrc
@@ -123,3 +129,7 @@ sdk version
 
 echo 'installing Open JDK 11'
 sdk install java 11.0.7-open
+
+echo 'installing NoMachine'
+wget -c https://download.nomachine.com/download/6.10/Linux/nomachine_6.10.12_1_amd64.deb
+sudo dpkg -i nomachine_6.10.12_1_amd64.deb
