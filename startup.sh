@@ -64,24 +64,21 @@ sudo snap install android-studio --classic
 echo 'installing IDEA Community'
 sudo snap install intellij-idea-community --classic
 
-echo 'installing spotify' 
-snap install spotify
+echo 'installing Spotify' 
+sudo snap install spotify
+
+echo 'installing Discord' 
+sudo snap install discord
 
 echo 'installing chrome' 
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i google-chrome-stable_current_amd64.deb
 
 echo 'installing nvm' 
-sh -c "$(curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash)"
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 
-export NVM_DIR="$HOME/.nvm" && (
-git clone https://github.com/creationix/nvm.git "$NVM_DIR"
-cd "$NVM_DIR"
-git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" $(git rev-list --tags --max-count=1)`
-) && \. "$NVM_DIR/nvm.sh"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 source ~/.zshrc
 nvm --version
@@ -117,7 +114,7 @@ docker run hello-world
 echo 'installing dbeaver'
 wget -c https://dbeaver.io/files/7.1.0/dbeaver-ce_7.1.0_amd64.deb
 sudo dpkg -i dbeaver-ce_7.1.0_amd64.deb
-sudo apt-get install -f
+sudo apt-get install -f -y
 
 echo 'installing sdkman'
 curl -s "https://get.sdkman.io" | bash
