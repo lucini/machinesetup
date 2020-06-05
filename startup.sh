@@ -26,6 +26,12 @@ else
 	echo "Okay, no problem. :) Let's move on!"
 fi
 
+echo 'installing tool to handle clipboard via CLI'
+sudo apt-get install xclip -y
+
+echo  'installing videocodecs'
+sudo apt install libavcodec-extra -y
+
 echo "Generating a SSH Key"
 ssh-keygen -t rsa -b 4096 -C $git_config_user_email
 ssh-add ~/.ssh/id_rsa
@@ -38,9 +44,6 @@ echo 'installing zsh'
 sudo apt-get install zsh -y
 sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 chsh -s /bin/zsh
-
-echo 'installing tool to handle clipboard via CLI'
-sudo apt-get install xclip -y
 
 export alias pbcopy='xclip -selection clipboard'
 export alias pbpaste='xclip -selection clipboard -o'
@@ -69,6 +72,9 @@ sudo snap install spotify
 
 echo 'installing Discord' 
 sudo snap install discord
+
+echo 'installing VLC'
+sudo snap install vlc
 
 echo 'installing chrome' 
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
@@ -117,11 +123,6 @@ docker --version
 chmod 777 /var/run/docker.sock
 docker run hello-world
 
-echo 'installing dbeaver'
-wget -c https://dbeaver.io/files/7.1.0/dbeaver-ce_7.1.0_amd64.deb
-sudo dpkg -i dbeaver-ce_7.1.0_amd64.deb
-sudo apt-get install -f -y
-
 echo 'installing sdkman'
 curl -s "https://get.sdkman.io" | bash
 source "$HOME/.sdkman/bin/sdkman-init.sh"
@@ -129,6 +130,10 @@ sdk version
 
 echo 'installing Open JDK 11'
 sdk install java 11.0.7-open
+
+echo 'installing Dbeaver'
+sudo snap install dbeaver-ce
+sudo apt install -f -y
 
 echo 'installing NoMachine'
 wget -c https://download.nomachine.com/download/6.10/Linux/nomachine_6.10.12_1_amd64.deb
