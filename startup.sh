@@ -1,6 +1,9 @@
 #!/bin/bash
 sudo apt-get update
 
+echo 'Set dock to BOTTOM'
+gsettings set org.gnome.shell.extensions.dash-to-dock dock-position BOTTOM
+
 echo 'installing curl' 
 sudo apt install curl -y
 
