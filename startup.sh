@@ -130,3 +130,6 @@ npm install -g npm-check
 
 echo 'installing Open JDK 11'
 sdk install java 11.0.7-open
+
+echo 'installing Maven'
+sudo apt install maven -y
